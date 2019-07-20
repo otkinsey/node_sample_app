@@ -3,9 +3,15 @@
  * in the app
  *************************************/
 const mongoose = require('mongoose');
+
 const Schema = mongoose.Schema;
 
-mongoose.Promise = global.Promise;
+try{
+    mongoose.Promise = global.Promise;
+}catch(e){
+    console.log("promise unfilled", e);
+}
+
 
 const userSchema = new Schema({
     user_id: Number,
